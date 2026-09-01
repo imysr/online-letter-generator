@@ -11,4 +11,5 @@
 @media(max-width:650px){.bouquet{height:300px;max-width:120vw;transform:scale(.78);margin:-30px auto}.bouquet .botanical-flower i{font-size:0}.bloom-screen>p{margin-top:-20px}}
 @media(prefers-reduced-motion:reduce){.bloom-screen.active .flower-stem{animation:none;transform:scaleY(1)}.bloom-screen.active .flower-head{animation:none;transform:scale(var(--flower-scale))}}
 .botanical-bouquet{height:340px;width:520px;max-width:92vw;position:relative;margin:0 auto 8px;--petal:#e8a6bd;--petal-dark:#c66d8e;--centre:#f5cf72}
+.botanical-bouquet .flower-head{width:82px;height:82px;left:-6px;top:-5px}.flower-art{display:block;width:100%;height:100%;overflow:visible}.flower-art-rose{filter:drop-shadow(0 7px 6px #8f234435)}.flower-art-tulip{filter:drop-shadow(0 7px 6px #9f315435)}.flower-art-sunflower{filter:drop-shadow(0 7px 6px #8b642b38)}.flower-art-daisy{filter:drop-shadow(0 7px 6px #65536630)}
 @media(max-width:650px){.botanical-bouquet{height:300px;max-width:120vw;transform:scale(.78);margin:-30px auto}.botanical-bouquet .botanical-flower i{font-size:0}}
