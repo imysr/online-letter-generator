@@ -63,7 +63,7 @@ export default function LetterPreviewExperience(props: Props) {
 
     <section className={`experience-screen bloom-screen ${chapter===2?"active":""}`}>
       <div className="chapter-label">CHAPTER TWO · FLOWERS THAT NEVER WILT</div><h2>I couldn&apos;t hand these to you,<br/><em>so I made them bloom here.</em></h2>
-      <div className={`bouquet bouquet-${flowerType}`} aria-label={`${flowerType} bouquet blooming`}>
+      <div className={`botanical-bouquet bouquet-${flowerType}`} aria-label={`${flowerType} bouquet blooming`}>
         {bouquetLayout.map((position,index)=><div className={`botanical-flower flower-${index + 1}`} key={index} style={{"--delay":`${index*.16}s`,"--x":`${position.x}px`,"--y":`${position.y}px`,"--rotate":`${position.rotate}deg`,"--flower-scale":position.scale} as React.CSSProperties}>
           <span className="flower-stem"><i className="leaf leaf-left"/><i className="leaf leaf-right"/></span>
           <span className="flower-head"><i/><i/><i/><i/><i/><i/><b/></span>
