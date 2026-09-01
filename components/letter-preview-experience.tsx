@@ -15,12 +15,15 @@ type Props = {
   theme: string;
 };
 
-const flowers: Record<string, string[]> = {
-  rose: ["🌹", "🌹", "🌹", "🌹", "🌹", "🌹", "🌹"],
-  tulip: ["🌷", "🌷", "🌷", "🌷", "🌷", "🌷", "🌷"],
-  sunflower: ["🌻", "🌻", "🌻", "🌻", "🌻", "🌻", "🌻"],
-  wildflower: ["🌸", "🌼", "🌷", "🌺", "🌸", "🌼", "🌷"],
-};
+const bouquetLayout = [
+  { x: -128, y: 48, rotate: -18, scale: .78 },
+  { x: -84, y: 8, rotate: -11, scale: .95 },
+  { x: -40, y: 35, rotate: -5, scale: .86 },
+  { x: 0, y: -5, rotate: 0, scale: 1.08 },
+  { x: 42, y: 32, rotate: 6, scale: .88 },
+  { x: 86, y: 5, rotate: 12, scale: .96 },
+  { x: 130, y: 50, rotate: 19, scale: .76 },
+];
 
 export default function LetterPreviewExperience(props: Props) {
   const [chapter, setChapter] = useState(0);
@@ -37,7 +40,7 @@ export default function LetterPreviewExperience(props: Props) {
   }, [props]);
   if (!props.open) return null;
   const name = props.recipient || "Someone special";
-  const bouquet = flowers[props.flower] || flowers.wildflower;
+  const flowerType = ["rose", "tulip", "sunflower", "wildflower"].includes(props.flower) ? props.flower : "wildflower";
 
   return <div className={`experience experience-${props.theme}`} role="dialog" aria-modal="true" aria-label="Recipient letter preview">
     <button className="experience-close" onClick={props.onClose}>× <span>Exit preview</span></button>
@@ -60,7 +63,13 @@ export default function LetterPreviewExperience(props: Props) {
 
     <section className={`experience-screen bloom-screen ${chapter===2?"active":""}`}>
       <div className="chapter-label">CHAPTER TWO · FLOWERS THAT NEVER WILT</div><h2>I couldn&apos;t hand these to you,<br/><em>so I made them bloom here.</em></h2>
-      <div className="bouquet"><div className="stems"></div>{bouquet.map((flower,index)=><i key={index} style={{"--delay":`${index*.18}s`,"--x":`${(index-3)*46}px`,"--y":`${Math.abs(index-3)*12}px`} as React.CSSProperties}>{flower}</i>)}<div className="bouquet-wrap-paper"></div><div className="bouquet-ribbon">for {name}</div></div>
+      <div className={`bouquet bouquet-${flowerType}`} aria-label={`${flowerType} bouquet blooming`}>
+        {bouquetLayout.map((position,index)=><div className={`botanical-flower flower-${index + 1}`} key={index} style={{"--delay":`${index*.16}s`,"--x":`${position.x}px`,"--y":`${position.y}px`,"--rotate":`${position.rotate}deg`,"--flower-scale":position.scale} as React.CSSProperties}>
+          <span className="flower-stem"><i className="leaf leaf-left"/><i className="leaf leaf-right"/></span>
+          <span className="flower-head"><i/><i/><i/><i/><i/><i/><b/></span>
+        </div>)}
+        <div className="bouquet-wrap-paper"><span/></div><div className="bouquet-ribbon">for {name}</div>
+      </div>
       <p>Whenever you return to this letter, they will bloom for you all over again.</p><button className="experience-next" onClick={()=>setChapter(3)}>Read your letter →</button>
     </section>
 
