@@ -84,7 +84,7 @@ export default function LetterPreviewExperience(props: Props) {
     <section className={`experience-screen opening vintage-opening palette-${props.envelopeColour} ${chapter===0?"active":""}`}>
       <div className="vintage-postmark">JUST FOR YOU · PRIVATE POST</div>
       <p>A LETTER HAS ARRIVED FOR</p><h1>{name}</h1><span className="experience-occasion">{props.occasion} edition</span>
-      <div className="vintage-envelope"><div className="envelope-address"><small>TO</small><b>{name}</b><span>with care, always</span></div><div className="envelope-flap"/><div className="wax-seal">J</div></div>
+      <div className="vintage-envelope"><div className="envelope-address"><small>TO</small><b>{name}</b><span>with care, always</span></div><div className="envelope-flap"/><div className="vintage-stamp"><span>✿</span><small>JUST FOR YOU</small></div></div>
       <button onClick={()=>setChapter(1)}>Open your story <span>→</span></button>
       <small>Best experienced slowly</small>
     </section>
