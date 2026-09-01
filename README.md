@@ -1,52 +1,63 @@
-# Online Letter Generator
+# Online Letter Generator 💌
 
-A personalised digital-letter platform where people create interactive gifts with stories, memory photos, animated flowers, and private letter reveals.
+I started this project because I wanted to create something more meaningful than sending a normal text message.
 
-> **Status:** Early visual MVP. Payments, persistent storage, and private share links are not active yet.
+The idea is simple. Someone writes a letter, adds their favourite memories, chooses a theme, and sends a private link to someone special. When the receiver opens it, they do not immediately see a block of text. They get to experience a small story made especially for them.
 
-## Current experiences
+This project is still in its early stage, so the payment system, saved letters, and private links are not working yet. Right now I am focusing on the designs and interactions first.
 
-- **Player Two** — a cute pixel-game letter with story levels and achievement reveals.
-- **The Special Edition** — a personalised editorial/newspaper letter.
-- **A Garden for You** — a dreamy garden with animated flowers.
-- **Graduation mode** — recipient details, journey story, memory album, achievement screen, and final letter.
+## The themes
 
-Every finished theme will include the product's signature feature: **flowers that never wilt** — a theme-specific animated flower-gift section.
+### Player Two
 
-## Included in this milestone
+This theme turns the letter into a cute pixel game. The receiver moves through story levels, opens shared memories, unlocks achievements, and receives the final letter as their reward.
 
-- Responsive creator interface
-- Live recipient, headline, message, and sender editing
-- Theme selection and pricing preview
-- Free-preview watermark
-- Prototype checkout screen
-- Player Two graduation recipient demo
-- Local memory-photo selection (photos remain in the browser)
+### The Special Edition
 
-## Run locally
+This theme presents the letter like a personalised newspaper. Names, photos, memories, and messages become headlines and newspaper stories.
 
-Open `index.html` in a modern browser. No installation is required. The immersive graduation demo is available at `demos/player-two-graduation.html`.
+### A Garden for You
 
-## Planned production architecture
+This is a dreamy flower garden where the message appears as the flowers slowly bloom.
 
-- Secure authentication and private share links
-- Private media storage with file limits and deletion controls
-- Server-verified Malaysian payment gateway webhooks
-- Publish/unlock states that cannot be bypassed by a browser redirect
-- Animated flower builders for every theme
-- Original K-pop-inspired themes without unlicensed artist media or branding
+I also plan to create original Kpop inspired themes with concert lights, photocards, album packaging, and comeback style reveals. These designs will not use copyrighted artist photos, music, logos, or album artwork.
 
-## Privacy and security
+## Flowers that never wilt 🌸
 
-- Do not commit `.env` files or API keys.
-- The current photo demo uses browser-local object data and uploads nothing.
-- Production letters must default to private access.
-- Payment status must be verified server-side before a paid letter is unlocked.
+Every letter will have an animated flower section.
 
-## Exclusivity note
+The flowers will match the selected theme. Pixel letters will have pixel flowers. Newspaper letters will use pressed flowers. Garden letters will slowly grow into a full bouquet.
 
-The creator's private one-of-one F1 graduation letter is intentionally excluded from this public repository and will not be offered as a public template.
+I want the flowers to feel like a real digital gift that the receiver can return to whenever they want.
+
+## Graduation experience
+
+The first immersive demo is made for graduation.
+
+It includes a story about the graduate's journey, a memory album, an achievement screen, and a final private letter. The sender can select photos of the graduate, themselves, and the moments they shared.
+
+The photo feature currently works only inside the browser. Nothing is uploaded or saved yet.
+
+You can find the demo in:
+
+`demos/player-two-graduation.html`
+
+## Trying the project
+
+Download the repository and open `index.html` in a modern browser. No installation is needed for the current prototype.
+
+## What I want to add next
+
+The finished version will have accounts, private letter links, secure photo storage, Malaysian online payments, more occasions, and animated flower builders for every theme.
+
+Payment will be checked securely on the server before a paid letter can be published. Private photos and letters will also need clear storage limits and deletion controls.
+
+## One special letter
+
+The personal F1 graduation letter that inspired this project is not included here. That design is private, and it will remain the only letter of its kind.
 
 ## Copyright
 
-Copyright © 2026 Intan Maisara / imysr. All rights reserved. See `LICENSE`.
+Copyright © 2026 Intan Maisara / imysr. All rights reserved.
+
+Please read the `LICENSE` file before using any part of this project.
