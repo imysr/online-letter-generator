@@ -16,13 +16,13 @@ type Props = {
 };
 
 const bouquetLayout = [
-  { x: -128, y: 48, rotate: -18, scale: .78 },
-  { x: -84, y: 8, rotate: -11, scale: .95 },
-  { x: -40, y: 35, rotate: -5, scale: .86 },
+  { x: 0, y: 48, rotate: -32, scale: .78 },
+  { x: 0, y: 8, rotate: -22, scale: .95 },
+  { x: 0, y: 35, rotate: -12, scale: .86 },
   { x: 0, y: -5, rotate: 0, scale: 1.08 },
-  { x: 42, y: 32, rotate: 6, scale: .88 },
-  { x: 86, y: 5, rotate: 12, scale: .96 },
-  { x: 130, y: 50, rotate: 19, scale: .76 },
+  { x: 0, y: 32, rotate: 12, scale: .88 },
+  { x: 0, y: 5, rotate: 22, scale: .96 },
+  { x: 0, y: 50, rotate: 32, scale: .76 },
 ];
 
 function FlowerBloom({ type, index }: { type: string; index: number }) {
