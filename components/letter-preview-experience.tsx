@@ -13,6 +13,7 @@ type Props = {
   flower: string;
   occasion: string;
   theme: string;
+  envelopeColour: string;
 };
 
 const bouquetLayout = [
@@ -80,18 +81,19 @@ export default function LetterPreviewExperience(props: Props) {
     <button className="experience-close" onClick={props.onClose}>× <span>Exit preview</span></button>
     <div className="experience-dots">{[0,1,2,3].map(dot=><button key={dot} onClick={()=>setChapter(dot)} className={chapter===dot?"active":""} aria-label={`Open chapter ${dot+1}`}></button>)}</div>
 
-    <section className={`experience-screen opening ${chapter===0?"active":""}`}>
-      <div className="experience-stars">✦　·　✧　·　✦</div>
-      <p>A LITTLE WORLD WAS MADE FOR</p><h1>{name}</h1><span className="experience-occasion">{props.occasion} edition</span>
-      <div className="tiny-envelope"><div>♡</div></div>
+    <section className={`experience-screen opening vintage-opening palette-${props.envelopeColour} ${chapter===0?"active":""}`}>
+      <div className="vintage-postmark">JUST FOR YOU · PRIVATE POST</div>
+      <p>A LETTER HAS ARRIVED FOR</p><h1>{name}</h1><span className="experience-occasion">{props.occasion} edition</span>
+      <div className="vintage-envelope"><div className="envelope-address"><small>TO</small><b>{name}</b><span>with care, always</span></div><div className="envelope-flap"/><div className="wax-seal">J</div></div>
       <button onClick={()=>setChapter(1)}>Open your story <span>→</span></button>
       <small>Best experienced slowly</small>
     </section>
 
     <section className={`experience-screen memories ${chapter===1?"active":""}`}>
       <div className="chapter-label">CHAPTER ONE · OUR MEMORIES</div><h2>The moments worth keeping.</h2>
-      <div className={`experience-photos count-${Math.min(props.photos.length,4)}`}>
-        {(props.photos.length?props.photos.slice(0,4):["","",""]).map((photo,index)=><figure key={index} style={{transform:`rotate(${index%2?3:-3}deg)`}}>{photo?<img src={photo} alt={`Shared memory ${index+1}`}/>:<div className="photo-placeholder">{index===0?"♡":index===1?"✦":"☺"}</div>}<figcaption>{index===0?"The person being celebrated":index===1?"The one cheering for you":"A memory we kept"}</figcaption></figure>)}
+      <div className="memory-keepsakes">
+        <div className="polaroid-pair">{[0,1].map(index=><figure className="memory-polaroid" key={index}>{props.photos[index]?<img src={props.photos[index]} alt={`Shared memory ${index+1}`}/>:<div className="photo-placeholder">{index===0?"♡":"✦"}</div>}<figcaption>{index===0?"The person being celebrated":"The one cheering for you"}</figcaption></figure>)}</div>
+        <figure className="photobooth-strip"><div className="strip-title">OUR LITTLE ARCHIVE</div>{[2,3,4].map(index=><div className="strip-frame" key={index}>{props.photos[index]?<img src={props.photos[index]} alt={`Shared memory ${index+1}`}/>:<span>{index===2?"☺":index===3?"♡":"✦"}</span>}</div>)}<figcaption>a few moments we kept</figcaption></figure>
       </div><button className="experience-next" onClick={()=>setChapter(2)}>There is something for you →</button>
     </section>
 
