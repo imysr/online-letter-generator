@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Create a tiny corner of the internet for someone special." />
+  <title>Just For You — Online Letter Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <a class="brand" href="#">just for you<span>.</span></a>
+    <div class="nav-note">Letters made to be kept, not scrolled past.</div>
+    <button class="ghost" id="howBtn">How it works</button>
+  </nav>
+
+  <main>
+    <section class="intro">
+      <div>
+        <p class="kicker">ONLINE LETTER STUDIO</p>
+        <h1>Make the internet feel <em>personal</em> again.</h1>
+      </div>
+      <p class="intro-copy">Choose a little world, write what you mean, and send someone a link made only for them.</p>
+    </section>
+
+    <section class="studio">
+      <aside class="editor">
+        <div class="step-heading"><span>01</span><div><b>Choose their world</b><small>Each theme tells the story differently.</small></div></div>
+        <div class="themes" role="radiogroup" aria-label="Letter theme">
+          <button class="theme-card active" data-theme="pixel" role="radio" aria-checked="true">
+            <span class="theme-thumb pixel-thumb">♥</span><span><b>Player Two</b><small>Cute pixel story</small></span><i>RM3.90</i>
+          </button>
+          <button class="theme-card" data-theme="news" role="radio" aria-checked="false">
+            <span class="theme-thumb news-thumb">NEWS</span><span><b>Special Edition</b><small>Personal newspaper</small></span><i>RM3.90</i>
+          </button>
+          <button class="theme-card" data-theme="garden" role="radio" aria-checked="false">
+            <span class="theme-thumb garden-thumb">✿</span><span><b>A Garden for You</b><small>Dreamy & blooming</small></span><i>RM7.90</i>
+          </button>
+        </div>
+
+        <div class="step-heading second"><span>02</span><div><b>Write your letter</b><small>We’ll bring it to life as you type.</small></div></div>
+        <label>To<input id="recipient" maxlength="32" value="Aira" placeholder="Their name" /></label>
+        <label>Headline<input id="headline" maxlength="70" value="You make ordinary days feel special." placeholder="Your opening line" /></label>
+        <label>Your letter<textarea id="message" maxlength="600" rows="6" placeholder="Write from the heart...">I don’t always know how to say things out loud, so I made you this tiny corner of the internet instead. I hope you remember that your existence makes someone’s world a little softer.</textarea><small class="counter"><span id="count">221</span>/600</small></label>
+        <label>From<input id="sender" maxlength="32" value="Someone who adores you" placeholder="Your name or a secret" /></label>
+      </aside>
+
+      <section class="preview-panel">
+        <header><div><span class="live-dot"></span>LIVE PREVIEW</div><button id="resetBtn">Reset</button></header>
+        <div class="device">
+          <div class="device-top"><span></span><span></span><span></span><i>private letter preview</i></div>
+          <div id="letterPreview" class="letter-preview theme-pixel">
+            <div class="pixel-scene preview-theme pixel-view">
+              <div class="pixel-cloud c1"></div><div class="pixel-cloud c2"></div>
+              <div class="pixel-stars">· ✦ ·</div>
+              <div class="pixel-people"><div class="pixel-person one"><i></i></div><span class="pixel-heart">♥</span><div class="pixel-person two"><i></i></div></div>
+              <div class="game-box">
+                <p>A LITTLE LETTER FOR</p><h2 class="out-recipient">Aira</h2>
+                <div class="typing-line out-headline">You make ordinary days feel special.</div>
+                <p class="letter-text out-message">I don’t always know how to say things out loud, so I made you this tiny corner of the internet instead. I hope you remember that your existence makes someone’s world a little softer.</p>
+                <p class="signature">— <span class="out-sender">Someone who adores you</span></p>
+              </div>
+            </div>
+
+            <div class="news-scene preview-theme news-view">
+              <div class="paper-date">SPECIAL EDITION · MADE WITH CARE</div>
+              <h2>THE DAILY <span class="out-recipient">AIRA</span></h2>
+              <div class="rule"></div><div class="paper-meta">PRICE: ONE SMILE <span>GOOD NEWS ONLY</span></div>
+              <h3 class="out-headline">You make ordinary days feel special.</h3>
+              <div class="news-grid"><div class="news-photo"><span>♡</span><small>EXCLUSIVE</small></div><p class="out-message">I don’t always know how to say things out loud, so I made you this tiny corner of the internet instead. I hope you remember that your existence makes someone’s world a little softer.</p></div>
+              <footer>FROM THE DESK OF <b class="out-sender">SOMEONE WHO ADORES YOU</b></footer>
+            </div>
+
+            <div class="garden-scene preview-theme garden-view">
+              <div class="butterfly">୨୧</div><div class="garden-stars">✦　·　✧　·　✦</div>
+              <div class="glass-card"><small>A GARDEN PLANTED FOR</small><h2 class="out-recipient">Aira</h2><h3 class="out-headline">You make ordinary days feel special.</h3><p class="out-message">I don’t always know how to say things out loud, so I made you this tiny corner of the internet instead. I hope you remember that your existence makes someone’s world a little softer.</p><em>with love, <span class="out-sender">Someone who adores you</span></em></div>
+              <div class="flowers"><i>✿</i><i>❀</i><i>✿</i><i>❁</i><i>✿</i><i>❀</i><i>✿</i></div>
+            </div>
+            <div class="watermark">FREE PREVIEW · JUST FOR YOU</div>
+          </div>
+        </div>
+        <div class="publish-row"><div><b id="priceLabel">RM3.90</b><span>one-time · no subscription</span></div><button class="publish" id="publishBtn">Publish this letter <span>→</span></button></div>
+      </section>
+    </section>
+  </main>
+
+  <dialog id="publishDialog">
+    <button class="dialog-close" id="closeDialog">×</button>
+    <div class="lock-icon">♡</div><p class="kicker">YOUR LETTER IS READY</p><h2>Unlock its private link.</h2>
+    <p>The real payment connection comes in our next development milestone. For now, this confirms the purchase screen and user journey.</p>
+    <div class="order"><span id="orderTheme">Player Two</span><b id="orderPrice">RM3.90</b></div>
+    <button class="checkout" disabled>Continue to secure payment</button><small>Prototype checkout · payment is not active yet</small>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
