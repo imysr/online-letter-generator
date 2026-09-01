@@ -2,9 +2,9 @@
 
 I started this project because I wanted to create something more meaningful than sending a normal text message.
 
-The idea is simple. Someone writes a letter, adds their favourite memories, chooses a theme, and sends a private link to someone special. When the receiver opens it, they do not immediately see a block of text. They get to experience a small story made especially for them.
+The idea is simple. Someone writes a letter, adds their favourite memories, chooses a theme, and sends a private link to someone special. When the receiver opens it, they get to experience a small story made especially for them.
 
-This project is still in its early stage, so the payment system, saved letters, and private links are not working yet. Right now I am focusing on the designs and interactions first.
+This project is still in its early stage. The current milestone includes the first Next.js homepage and a four step creator studio. Payments, saved letters, and private links are not working yet.
 
 ## The themes
 
@@ -24,27 +24,24 @@ I also plan to create original Kpop inspired themes with concert lights, photoca
 
 ## Flowers that never wilt 🌸
 
-Every letter will have an animated flower section.
+Every letter will have an animated flower section. The flowers will match the selected theme. I want them to feel like a real digital gift that the receiver can return to whenever they want.
 
-The flowers will match the selected theme. Pixel letters will have pixel flowers. Newspaper letters will use pressed flowers. Garden letters will slowly grow into a full bouquet.
+## What works now
 
-I want the flowers to feel like a real digital gift that the receiver can return to whenever they want.
+The homepage lets people choose an occasion and explore the first three themes. The creator studio collects the receiver's name, sender's signature, memories, flower choice, and final letter. It also shows a live preview while the letter is being created.
 
-## Graduation experience
+The current photo feature stays inside the browser. Nothing is uploaded or saved yet.
 
-The first immersive demo is made for graduation.
+## Running the project
 
-It includes a story about the graduate's journey, a memory album, an achievement screen, and a final private letter. The sender can select photos of the graduate, themselves, and the moments they shared.
+```bash
+npm install
+npm run dev
+```
 
-The photo feature currently works only inside the browser. Nothing is uploaded or saved yet.
+Open `http://localhost:3000` in your browser. You can also run `npm run build` to check the production build.
 
-You can find the demo in:
-
-`demos/player-two-graduation.html`
-
-## Trying the project
-
-Download the repository and open `index.html` in a modern browser. No installation is needed for the current prototype.
+The earlier immersive graduation demo is still available in `demos/player-two-graduation.html`.
 
 ## What I want to add next
 
