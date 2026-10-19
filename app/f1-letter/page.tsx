@@ -12,7 +12,7 @@ export default function F1LetterPrototype() {
     <section className={`race-panel race-opening ${chapter===0?"active":""}`}>
       <div className="start-lights">{[0,1,2,3,4].map(light=><i key={light}/>)}</div>
       <p className="race-kicker">FROM THE STARTING GRID TO YOUR VICTORY LAP</p>
-      <h1>For Syuk.</h1><h2>Class of 2026</h2>
+      <h1>Happy Graduation!</h1><h2>Syuk · Class of 2026</h2>
       <div className="race-number">26</div>
       <p className="race-intro">A one-of-one graduation letter, made only for you.</p>
       <button onClick={()=>setChapter(1)}>LIGHTS OUT <span>→</span></button>
@@ -21,10 +21,10 @@ export default function F1LetterPrototype() {
     <section className={`race-panel race-memories ${chapter===1?"active":""}`}>
       <div className="race-kicker">LAP 01 · THE MOMENTS THAT GOT YOU HERE</div>
       <h2>Your victory lap.</h2>
-      <div className="paddock-grid">
-        <figure><div>YOUR PHOTO</div><figcaption>THE GRADUATE</figcaption></figure>
-        <figure><div>OUR MEMORY</div><figcaption>WORTH KEEPING</figcaption></figure>
-        <figure><div>MY PHOTO</div><figcaption>QUIETLY CHEERING</figcaption></figure>
+      <div className="paddock-grid keepsake-grid">
+        <figure className="race-keepsake grid-pass"><div><small>GRADUATION PADDOCK PASS</small><b>SYUK</b><em>CLASS OF 2026</em><span>01 / 11</span></div><figcaption>POLE POSITION · GRADUATE</figcaption></figure>
+        <figure className="race-keepsake grid-board"><div><small>FINAL LAP</small><b>🏁</b><em>THE FINISH LINE IS ONLY THE BEGINNING</em></div><figcaption>A MILESTONE WORTH KEEPING</figcaption></figure>
+        <figure className="race-keepsake grid-message"><div><small>FROM THE GRANDSTAND</small><b>QUIETLY<br/>CHEERING<br/>FOR YOU.</b><em>WITH CARE, ALWAYS</em></div><figcaption>YOUR PRIVATE MESSAGE</figcaption></figure>
       </div>
       <blockquote>“Some victories deserve more than applause. They deserve to be remembered.”</blockquote>
       <button onClick={()=>setChapter(2)}>CLAIM YOUR BOUQUET <span>→</span></button>
@@ -52,7 +52,7 @@ export default function F1LetterPrototype() {
         <div className="race-signature">With care, always<br/><b>Intan</b></div>
       </article>
       <div className="race-licence"><span className="licence-seal">IM</span><p><b>ORIGINAL DIGITAL LETTER</b><br/>Created by Intan Maisara / imysr<br/><small>Copyright © 2026 · One-of-one private edition · Personal viewing only</small></p><strong>01 / 01</strong></div>
-      <button onClick={()=>setChapter(0)}>REPLAY THE VICTORY LAP ↻</button>
+      <div className="final-buttons"><button onClick={()=>window.print()}>SAVE THIS LETTER ↓</button><button onClick={()=>setChapter(0)}>REPLAY THE VICTORY LAP ↻</button></div>
     </section>
 
     <nav className="race-progress">{chapters.map((label,i)=><button key={label} className={chapter===i?"active":""} onClick={()=>setChapter(i)}><span>0{i+1}</span>{label}</button>)}</nav>
