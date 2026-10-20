@@ -58,3 +58,10 @@
 .ribbon-bow b,.ribbon-bow span{position:absolute;top:20px;width:18px;height:40px;background:linear-gradient(90deg,#a80615,#ed1c2e);z-index:1;clip-path:polygon(0 0,100% 0,82% 100%,50% 78%,18% 100%)}
 .ribbon-bow b{left:0;rotate:8deg}.ribbon-bow span{right:0;rotate:-8deg}
 @media(max-width:760px){.bear-holder{bottom:55px!important}.ribbon-bow{bottom:69px}}
+
+/* Final bouquet proportions */
+.bouquet-wrap{height:155px}
+.bouquet-wrap:after{top:72px}
+.bear-holder{bottom:68px!important}
+.ribbon-bow{bottom:58px}
+@media(max-width:760px){.bear-holder{bottom:68px!important}.ribbon-bow{bottom:58px}}
