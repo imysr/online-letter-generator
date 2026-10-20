@@ -65,3 +65,16 @@
 .bear-holder{bottom:68px!important}
 .ribbon-bow{bottom:58px}
 @media(max-width:760px){.bear-holder{bottom:68px!important}.ribbon-bow{bottom:58px}}
+
+/* Scale the entire fixed-coordinate illustration, including its layout space.
+   A transform alone left overflowing artwork and the breathing animation
+   replaced that transform, covering the following button on phones. */
+@media(max-width:760px){
+  .race-bouquet{display:flex;flex-direction:column;justify-content:safe center;align-items:center;gap:0;padding:24px 16px 32px}
+  .race-bouquet .flower-meaning{height:auto;min-height:74px;flex-shrink:0}
+  .race-bouquet .bouquet-stage{width:700px;min-width:700px;height:335px;flex-shrink:0;zoom:.65;transform:none;margin:16px auto 28px}
+  .race-bouquet>button{position:relative;z-index:13;flex-shrink:0;margin:0;min-height:46px}
+}
+@media(max-width:480px){.race-bouquet .bouquet-stage{zoom:.52}}
+@media(max-width:400px){.race-bouquet .bouquet-stage{zoom:.46}}
+@media(max-width:360px){.race-bouquet .bouquet-stage{zoom:.41}}
