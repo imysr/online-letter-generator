@@ -24,3 +24,14 @@
 .bear-holder{bottom:260px!important;z-index:10}.bear-holder:after{top:125px;height:260px}.race-suit b{font-size:10px;margin-top:14px}.race-suit span{font-size:3.5px}
 .filler-blooms i{width:16px;height:16px;border:0;background:currentColor;box-shadow:0 -15px 0 currentColor,14px -5px 0 currentColor,9px 12px 0 currentColor,-9px 12px 0 currentColor,-14px -5px 0 currentColor}.filler-blooms i:before{inset:3px;background:#d8ad52;z-index:2}.filler-blooms i:after{display:none}.fill-red{color:#d82a3f}.fill-blue{color:#6576c9}.fill-yellow{color:#efb42b}.fill-red.one{left:24%;top:24%}.fill-red.two{left:31%;top:38%;scale:.82}.fill-blue.one{left:37%;top:18%;scale:.86}.fill-blue.two{right:27%;top:35%;scale:.8}.fill-yellow.one{right:22%;top:23%}.fill-yellow.two{right:35%;top:15%;scale:.78}.fill-yellow.three{left:45%;top:36%;scale:.72}
 @media(max-width:760px){.bear-holder{bottom:250px!important}}
+
+/* Keep the teddy in the heart of the bouquet and let the sunflower lead */
+.bear-holder{bottom:118px!important;z-index:10}
+.bear-holder:after{top:125px;height:150px}
+.flower-sunflower{width:168px;height:300px;bottom:62px;margin-left:0;z-index:5}
+.flower-pinkrose{z-index:7}
+.filler-blooms{z-index:2}
+.fill-blue.two{right:38%;top:38%}
+.fill-yellow.one{right:39%;top:24%}
+.fill-yellow.two{right:43%;top:14%}
+@media(max-width:760px){.bear-holder{bottom:118px!important}}
