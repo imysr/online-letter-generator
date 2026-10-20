@@ -45,3 +45,16 @@
 .extra-iris{margin-left:-98px;bottom:55px;rotate:5deg;scale:.72}
 .extra-daffodil{margin-left:142px;bottom:47px;rotate:6deg;scale:.72}
 @media(max-width:760px){.bear-holder{bottom:86px!important}}
+
+/* Satin bow and a smaller teddy seated on the wrapper */
+.bear-holder{bottom:55px!important;transform:translate(-50%,40px) scale(.56)}
+.bear-holder.arrived{transform:translate(-50%,0) scale(.56)}
+.ribbon-bow{position:absolute;left:50%;bottom:69px;width:30px;height:30px;translate:-50%;z-index:12;opacity:0;transition:.6s 1s}
+.stage-6 .ribbon-bow{opacity:1}
+.ribbon-bow:before,.ribbon-bow:after{content:"";position:absolute;top:2px;width:35px;height:24px;background:linear-gradient(135deg,#ff3a49,#b90819);border:2px solid #ff5b67;box-shadow:0 5px 9px #0007}
+.ribbon-bow:before{right:19px;border-radius:55% 12% 55% 12%;rotate:-13deg}
+.ribbon-bow:after{left:19px;border-radius:12% 55% 12% 55%;rotate:13deg}
+.ribbon-bow i{position:absolute;inset:3px;background:linear-gradient(145deg,#ff4553,#b40818);border:2px solid #ff6b75;border-radius:50%;z-index:2;box-shadow:0 5px 8px #0007}
+.ribbon-bow b,.ribbon-bow span{position:absolute;top:20px;width:18px;height:40px;background:linear-gradient(90deg,#a80615,#ed1c2e);z-index:1;clip-path:polygon(0 0,100% 0,82% 100%,50% 78%,18% 100%)}
+.ribbon-bow b{left:0;rotate:8deg}.ribbon-bow span{right:0;rotate:-8deg}
+@media(max-width:760px){.bear-holder{bottom:55px!important}.ribbon-bow{bottom:69px}}
