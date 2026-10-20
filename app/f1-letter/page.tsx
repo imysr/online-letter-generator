@@ -1,60 +1,41 @@
 "use client";
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./f1-letter.css";
 
-const chapters = ["Starting grid", "Victory lap", "Bouquet", "Letter"];
+const chapters=["Starting grid","The race","Bouquet","Letter"];
+const raceNotes=[
+ ["STRENGTH","You kept going, even while having to work along the way."],
+ ["COURAGE","Not every difficult part of the journey was visible—but you made it through."],
+ ["ACHIEVEMENT","Every effort brought you closer to this finish line."],
+ ["NEW BEGINNING","Graduation is not the end of your race. It is the beginning of your next one."]
+];
+const blooms=[
+ ["gladiolus","Red gladiolus","For the strength that carried you through work, study and every difficult day."],
+ ["iris","Blue iris","For courage, wisdom and the hope you held onto along the way."],
+ ["sunflower","Sunflower","For admiration—and for always turning toward what comes next."],
+ ["daffodil","Yellow daffodil","For the new beginning waiting beyond this finish line."],
+ ["pinkrose","One quiet rose","Simply because you became someone quietly special to me."]
+];
 
-export default function F1LetterPrototype() {
-  const [chapter, setChapter] = useState(0);
-  return <main className="race-letter">
-    <header className="race-nav"><span>01 / 01</span><strong>A LETTER BEYOND THE FINISH LINE</strong><span>PRIVATE EDITION</span></header>
-    <section className={`race-panel race-opening ${chapter===0?"active":""}`}>
-      <div className="start-lights">{[0,1,2,3,4].map(light=><i key={light}/>)}</div>
-      <p className="race-kicker">FROM THE STARTING GRID TO YOUR VICTORY LAP</p>
-      <h1>Happy Graduation!</h1><h2>Syuk · Class of 2026</h2>
-      <div className="race-number">26</div>
-      <p className="race-intro">A one-of-one graduation letter, made only for you.</p>
-      <button onClick={()=>setChapter(1)}>LIGHTS OUT <span>→</span></button>
-    </section>
+function RaceCar(){return <svg className="moving-car" viewBox="0 0 240 82" aria-label="A red racing car"><path className="car-shadow" d="M18 69h198"/><path className="car-red" d="M21 51h35l25-25h69l27 25h39l11 12H13z"/><path className="car-dark" d="M91 29h49l19 22H70z"/><path className="car-glass" d="M97 32h38l14 16H80z"/><path className="car-gold" d="M28 53h178v5H28z"/><path className="car-wing" d="M18 36h42v8H18zm169 1h38v8h-38z"/><circle className="tyre" cx="61" cy="64" r="15"/><circle className="rim" cx="61" cy="64" r="6"/><circle className="tyre" cx="184" cy="64" r="15"/><circle className="rim" cx="184" cy="64" r="6"/><text x="116" y="58">26</text></svg>}
 
-    <section className={`race-panel race-memories ${chapter===1?"active":""}`}>
-      <div className="race-kicker">LAP 01 · THE MOMENTS THAT GOT YOU HERE</div>
-      <h2>Your victory lap.</h2>
-      <div className="paddock-grid keepsake-grid">
-        <figure className="race-keepsake grid-pass"><div><small>GRADUATION PADDOCK PASS</small><b>SYUK</b><em>CLASS OF 2026</em><span>01 / 11</span></div><figcaption>POLE POSITION · GRADUATE</figcaption></figure>
-        <figure className="race-keepsake grid-board"><div><small>FINAL LAP</small><b>🏁</b><em>THE FINISH LINE IS ONLY THE BEGINNING</em></div><figcaption>A MILESTONE WORTH KEEPING</figcaption></figure>
-        <figure className="race-keepsake grid-message"><div><small>FROM THE GRANDSTAND</small><b>QUIETLY<br/>CHEERING<br/>FOR YOU.</b><em>WITH CARE, ALWAYS</em></div><figcaption>YOUR PRIVATE MESSAGE</figcaption></figure>
-      </div>
-      <blockquote>“Some victories deserve more than applause. They deserve to be remembered.”</blockquote>
-      <button onClick={()=>setChapter(2)}>CLAIM YOUR BOUQUET <span>→</span></button>
-    </section>
+function Flower({kind}:{kind:string}){
+ if(kind==="gladiolus")return <svg viewBox="0 0 120 260"><path className="stem" d="M62 252C61 180 61 90 58 20"/><path className="leaf" d="M61 194C30 175 25 145 18 117c31 19 41 46 43 77zm2 20c26-21 35-50 38-75-26 14-37 42-38 75z"/><g className="red-petals"><circle cx="58" cy="28" r="20"/><circle cx="42" cy="58" r="22"/><circle cx="72" cy="72" r="24"/><circle cx="45" cy="99" r="24"/><circle cx="73" cy="125" r="23"/></g></svg>;
+ if(kind==="iris")return <svg viewBox="0 0 130 245"><path className="stem" d="M64 238C66 164 62 100 64 49"/><path className="leaf" d="M64 211C36 189 33 148 35 116c22 32 28 61 29 95zm2 0c19-27 26-60 28-91-21 22-29 59-28 91z"/><g className="iris-petals"><path d="M64 56C31 30 39 8 60 31 65 3 84 6 71 36c31-20 39 10 8 26z"/><path d="M63 52C31 78 22 51 49 43c-8-30 18-30 18 3 21-27 42-5 11 17z"/></g><circle className="gold-centre" cx="64" cy="53" r="7"/></svg>;
+ if(kind==="sunflower")return <svg viewBox="0 0 150 235"><path className="stem" d="M73 228C77 163 73 109 75 77"/><path className="leaf" d="M73 171C40 165 28 144 26 126c27 3 44 18 47 45zm2 19c31-6 44-27 48-48-27 5-43 23-48 48z"/><g className="sun-petals">{Array.from({length:16}).map((_,i)=><ellipse key={i} cx="75" cy="43" rx="13" ry="31" transform={`rotate(${i*22.5} 75 75)`}/>)}</g><circle className="sun-centre" cx="75" cy="75" r="30"/></svg>;
+ if(kind==="daffodil")return <svg viewBox="0 0 130 230"><path className="stem" d="M65 225C65 157 67 108 64 74"/><path className="leaf" d="M64 205C38 177 40 139 43 116 61 146 65 176 64 205zm2 1c18-29 22-60 20-86-17 23-22 55-20 86z"/><g className="yellow-petals">{Array.from({length:6}).map((_,i)=><ellipse key={i} cx="65" cy="39" rx="20" ry="36" transform={`rotate(${i*60} 65 66)`}/>)}</g><path className="trumpet" d="M45 55h40L78 89H52z"/><ellipse className="trumpet" cx="65" cy="55" rx="21" ry="10"/></svg>;
+ return <svg viewBox="0 0 130 235"><path className="stem" d="M66 228C65 161 68 107 65 77"/><path className="leaf" d="M65 186C39 174 31 153 29 135 51 139 63 154 65 186zm2 16c23-15 31-38 32-59-21 10-31 31-32 59z"/><g className="pink-petals"><path d="M65 78C19 64 22 18 59 39c8-39 46-22 30 12 37-1 30 38-3 32z"/><path d="M65 79C31 64 45 35 62 53c12-28 35-5 18 16 24 9 3 29-15 10z"/></g><circle className="rose-heart" cx="66" cy="69" r="11"/></svg>
+}
+function Bear(){return <div className="grad-bear" aria-label="Graduation teddy bear in a red racing suit"><i className="bear-ear left"/><i className="bear-ear right"/><div className="bear-head"><span className="bear-eye left"/><span className="bear-eye right"/><span className="bear-muzzle">ᴗ</span></div><div className="grad-cap"><i/><b/></div><div className="race-suit"><b>26</b><span>GRADUATE</span></div><i className="bear-arm left"/><i className="bear-arm right"/></div>}
 
-    <section className={`race-panel race-bouquet ${chapter===2?"active":""}`}>
-      <div className="race-kicker">LAP 02 · FLOWERS THAT NEVER WILT</div>
-      <h2>A victory bouquet.</h2>
-      <div className="f1-bouquet">
-        <div className="f1-stems">{[0,1,2,3,4,5,6,7,8].map(i=><i key={i}/>)}</div>
-        <div className="f1-flowers">{["rose","baby","lily","rose","lily","rose","baby","lily","rose"].map((kind,i)=><span className={kind} key={i}>{kind==="rose"?"✿":kind==="lily"?"✧":"❀"}</span>)}</div>
-        <div className="f1-wrap"><b>FOR SYUK</b><small>GRADUATION 2026</small></div>
-      </div>
-      <p>Whenever you return, they will bloom for you all over again.</p>
-      <button onClick={()=>setChapter(3)}>READ THE LETTER <span>→</span></button>
-    </section>
-
-    <section className={`race-panel race-final ${chapter===3?"active":""}`}>
-      <article>
-        <div className="race-kicker">FINAL LAP · FROM INTAN</div>
-        <h2>Happy Graduation Day, Syuk.</h2>
-        <p>I badly wanted to give you a handwritten letter because I love giving handwritten letters to someone special. Tapi sik dapat, so I made this little world for you instead.</p>
-        <p>Thank you for keeping up ngan OfflineYsr, even with all the goofy and sik berapa subtle posts. This online letter is my way of ikut “hadir” dengan kitak on your graduation day.</p>
-        <p>No pressure, no expectation. I’m simply proud of you—and quietly clapping for you from here.</p>
-        <div className="race-signature">With care, always<br/><b>Intan</b></div>
-      </article>
-      <div className="race-licence"><span className="licence-seal">IM</span><p><b>ORIGINAL DIGITAL LETTER</b><br/>Created by Intan Maisara / imysr<br/><small>Copyright © 2026 · One-of-one private edition · Personal viewing only</small></p><strong>01 / 01</strong></div>
-      <div className="final-buttons"><button onClick={()=>window.print()}>SAVE THIS LETTER ↓</button><button onClick={()=>setChapter(0)}>REPLAY THE VICTORY LAP ↻</button></div>
-    </section>
-
-    <nav className="race-progress">{chapters.map((label,i)=><button key={label} className={chapter===i?"active":""} onClick={()=>setChapter(i)}><span>0{i+1}</span>{label}</button>)}</nav>
-  </main>;
+export default function F1Letter(){
+ const[chapter,setChapter]=useState(0),[raceStep,setRaceStep]=useState(0),[bloomStep,setBloomStep]=useState(0);
+ useEffect(()=>{if(chapter!==1)return;setRaceStep(0);const t=window.setInterval(()=>setRaceStep(s=>s<4?s+1:s),1750);return()=>clearInterval(t)},[chapter]);
+ useEffect(()=>{if(chapter!==2)return;setBloomStep(0);const t=window.setInterval(()=>setBloomStep(s=>s<6?s+1:s),1850);return()=>clearInterval(t)},[chapter]);
+ return <main className="race-letter"><header className="race-nav"><span>01 / 01</span><strong>A LETTER BEYOND THE FINISH LINE</strong><span>PRIVATE EDITION</span></header>
+ <section className={`race-panel race-opening ${chapter===0?"active":""}`}><div className="start-lights">{[0,1,2,3,4].map(x=><i key={x}/>)}</div><p className="race-kicker">FROM THE STARTING GRID TO YOUR VICTORY LAP</p><h1>Happy Graduation!</h1><h2>Syuk · Class of 2026</h2><div className="race-number">26</div><p className="race-intro">A one-of-one graduation letter, made only for you.</p><button onClick={()=>setChapter(1)}>LIGHTS OUT <span>→</span></button></section>
+ <section className={`race-panel race-journey ${chapter===1?"active":""}`}><div className="race-kicker">LAP 01 · THE RACE YOU RAN</div><h2>The road to this moment.</h2><div className="track-story"><div className="track-line"/><div className="car-lane" style={{"--race-step":raceStep} as React.CSSProperties}><RaceCar/></div>{raceNotes.map(([a,b],i)=><div key={a} className={`checkpoint cp-${i+1} ${raceStep>i?"reached":""}`}><i>{i+1}</i><div><b>{a}</b><p>{b}</p></div></div>)}</div><p className={`finish-message ${raceStep===4?"show":""}`}>There is something waiting for you beyond the finish line.</p><button disabled={raceStep<4} onClick={()=>setChapter(2)}>CLAIM YOUR BOUQUET <span>→</span></button></section>
+ <section className={`race-panel race-bouquet ${chapter===2?"active":""}`}><div className="race-kicker">LAP 02 · FLOWERS THAT NEVER WILT</div><h2>A victory bouquet.</h2><div className={`bouquet-stage stage-${bloomStep}`}><div className="bouquet-glow"/><div className="botanical-fill baby-one">✣ · ✣ · ✣</div><div className="botanical-fill baby-two">✣ · ✣</div>{blooms.map(([kind,name,meaning],i)=><div className={`flower-item flower-${kind} ${bloomStep>i?"bloomed":""}`} key={kind}><Flower kind={kind}/><aside><b>{name}</b><p>{meaning}</p></aside></div>)}<div className="eucalyptus left">● ● ● ● ●</div><div className="eucalyptus right">● ● ● ● ●</div><div className="bouquet-wrap"><b>FOR SYUK</b><small>CLASS OF 2026 · 01 / 01</small></div><div className={`bear-holder ${bloomStep>=6?"arrived":""}`}><Bear/></div></div><p className={`bouquet-message ${bloomStep>=6?"show":""}`}>Together, these flowers say what I wanted you to know: you worked hard, you made it, and I’m proud of you.</p><button disabled={bloomStep<6} onClick={()=>setChapter(3)}>RECEIVE YOUR LETTER <span>→</span></button></section>
+ <section className={`race-panel race-final ${chapter===3?"active":""}`}><article className="handwritten-letter"><div className="letter-flourish">❦</div><div className="race-kicker">FINAL LAP · A LETTER FOR SYUK</div><h2>Happy Graduation Day, Syuk!</h2><p>How’s your day todayyy? Drive safely agak Bintulu–Kuching. Aduhh, cmne mok start… Congratulations on your graduation!!</p><p>I know kmk bru kenal ktk this year, and I wasn’t there for all the years in UPM that brought you to this moment. The difficult days, assignments, stress, and times when you were probably tired, or felt like sikda orang paham or sikda orang you could talk to. But somehow, kmk tetap rasa really proud of you!! Hehehe.</p><p>Please don’t forget to take a moment to congratulate yourself too. You’ve been hard on yourself throughout your studies, so be proud of how far you’ve come and treat yourself to something you love. You truly deserve it.</p><p>Truthfully, kmk harap dapat berik ktk handwritten letter, sebab kmk suka berik handwritten letters to people who are special to me. Tapi since sikdapat, kmk buat online letter tok untuk celebrate ktk instead hahaha. Once again, happy graduation, Syuk. I’m really proud of you!</p></article><div className="race-licence"><span className="licence-seal">IM</span><p><b>ORIGINAL DIGITAL LETTER</b><br/>Designed and created with care by Intan<br/><small>Copyright © 2026 · One-of-one graduation edition · For Syuk</small></p><strong>01 / 01</strong></div><div className="final-buttons"><button onClick={()=>window.print()}>SAVE THIS LETTER ↓</button><button onClick={()=>setChapter(0)}>EXPERIENCE AGAIN ↻</button></div></section>
+ <nav className="race-progress">{chapters.map((x,i)=><button key={x} className={chapter===i?"active":""} onClick={()=>setChapter(i)}><span>0{i+1}</span>{x}</button>)}</nav></main>
 }
