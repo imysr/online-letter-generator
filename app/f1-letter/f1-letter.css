@@ -37,9 +37,11 @@
 @media(max-width:760px){.bear-holder{bottom:118px!important}}
 
 /* A fuller victory bouquet */
-.bear-holder{bottom:96px!important}
+.bear-holder{bottom:86px!important}
+.bouquet-wrap{width:450px;background:#050505;box-shadow:0 22px 35px #0008}
+.bouquet-wrap:after{background:#d7192f;height:24px}
 .bouquet-extra{z-index:2;filter:saturate(.9) brightness(.92)}
-.extra-gladiolus{margin-left:-178px;bottom:38px;rotate:-14deg;scale:.88}
-.extra-iris{margin-left:-105px;bottom:58px;rotate:-8deg;scale:.86}
-.extra-daffodil{margin-left:118px;bottom:48px;rotate:11deg;scale:.88}
-@media(max-width:760px){.bear-holder{bottom:96px!important}}
+.extra-gladiolus{margin-left:-158px;bottom:45px;rotate:-4deg;scale:.76}
+.extra-iris{margin-left:-98px;bottom:55px;rotate:5deg;scale:.72}
+.extra-daffodil{margin-left:142px;bottom:47px;rotate:6deg;scale:.72}
+@media(max-width:760px){.bear-holder{bottom:86px!important}}
