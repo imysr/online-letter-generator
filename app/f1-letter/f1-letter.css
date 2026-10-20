@@ -27,8 +27,8 @@
 
 /* Keep the teddy in the heart of the bouquet and let the sunflower lead */
 .bear-holder{bottom:118px!important;z-index:10}
-.bear-holder:after{top:125px;height:150px}
-.flower-sunflower{width:168px;height:300px;bottom:62px;margin-left:0;z-index:5}
+.bear-holder:after{display:none}
+.flower-sunflower{width:126px;height:300px;bottom:62px;margin-left:-4px;z-index:4}
 .flower-pinkrose{z-index:7}
 .filler-blooms{z-index:2}
 .fill-blue.two{right:38%;top:38%}
