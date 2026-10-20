@@ -35,3 +35,11 @@
 .fill-yellow.one{right:39%;top:24%}
 .fill-yellow.two{right:43%;top:14%}
 @media(max-width:760px){.bear-holder{bottom:118px!important}}
+
+/* A fuller victory bouquet */
+.bear-holder{bottom:96px!important}
+.bouquet-extra{z-index:2;filter:saturate(.9) brightness(.92)}
+.extra-gladiolus{margin-left:-178px;bottom:38px;rotate:-14deg;scale:.88}
+.extra-iris{margin-left:-105px;bottom:58px;rotate:-8deg;scale:.86}
+.extra-daffodil{margin-left:118px;bottom:48px;rotate:11deg;scale:.88}
+@media(max-width:760px){.bear-holder{bottom:96px!important}}
